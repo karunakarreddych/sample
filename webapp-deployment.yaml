@@ -1,0 +1,36 @@
+apiVersion: apps/v1             # API version
+kind: Deployment                # Type of kubernetes resource
+metadata:
+  name: tetrawing-webapp      # Name of the kubernetes resource
+spec:
+  replicas: 1                   # No of replicas/pods to run
+  selector:                     
+    matchLabels:                # This deployment applies to Pods matching the specified labels
+      app: tetrawing-webapp
+  template:                     # Template for creating the Pods in this deployment
+    metadata:
+      labels:                   # Labels that will be applied to all the Pods in this deployment
+        app: tetrawing-webapp
+    spec:                       # Spec for the containers that will run inside the Pods
+      containers:
+      - name: tetrawing-webapp
+        image: chkarunakarreddy/sample:5
+        ports:
+          - name: http
+            containerPort: 9001   # Should match the Port that the container listens on
+
+---
+apiVersion: v1                # API version
+kind: Service                 # Type of the kubernetes resource
+metadata:
+  name: tetrawing-webapp    # Name of the kubernetes resource
+  labels:                     # Labels that will be applied to this resource
+    app: tetrawing-webapp
+spec:
+  type: NodePort              # The service will be exposed by opening a Port on each node and proxying it.
+  selector:
+    app: tetrawing-webapp   # The service exposes Pods with label `app=tetrawing-webapp`
+  ports:                      # Forward incoming connections on port 9001 to the target port 9001
+  - nodePort: 31244
+    port: 9001
+    targetPort: 9001
