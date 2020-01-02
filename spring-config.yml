@@ -1,0 +1,14 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: spring-boot-demo-config-map
+  namespace: default
+data:
+  spring.datasource.url: "jdbc:postgresql://172.31.15.210:30868/bmtsys"
+  spring.datasource.driver: "org.postgresql.Driver"
+  spring.datasource.username: "postgres"
+  spring.datasource.password: "123456"
+  spring.datasource.tomcat.validation-query: "SELECT 1"
+  spring.jpa.database-platform: "org.hibernate.dialect.PostgreSQLDialect"
+  spring.jpa.hibernate.ddl-auto: "update"
+  spring.jpa.properties.hibernate.jdbc.lob.non_contextual_creation: "true"
