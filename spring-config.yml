@@ -4,7 +4,7 @@ metadata:
   name: spring-boot-demo-config-map
   namespace: default
 data:
-  spring.datasource.url: "jdbc:postgresql://10.9.10.22:30868/bmtsys"
+  spring.datasource.url: "jdbc:postgresql://192.168.1.7:30868/bmtsys"
   spring.datasource.driver: "org.postgresql.Driver"
   spring.datasource.username: "postgres"
   spring.datasource.password: "123456"
