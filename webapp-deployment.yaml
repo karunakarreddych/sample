@@ -15,6 +15,9 @@ spec:
       containers:
       - name: tetrawing-webapp
         image: chkarunakarreddy/sample:5
+        envFrom:
+        - configMapRef:
+            name: webapp-config-map
         ports:
           - name: http
             containerPort: 9001   # Should match the Port that the container listens on
