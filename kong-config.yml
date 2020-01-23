@@ -1,18 +1,24 @@
-const SERVER_CONFIG = {};
-SERVER_CONFIG.nodePort = 31244//9001;
-SERVER_CONFIG.redisHostUrl = "localhost";
-SERVER_CONFIG.redisPortUrl = 6379;
-SERVER_CONFIG.apiBaseUrl = 'http://121.167.52.69:8080'; //'http://127.0.0.1:8080';
-SERVER_CONFIG.kongBaseUrl = 'http://localhost:8001';
-SERVER_CONFIG.loginBundlePath = "http://localhost:9000/login.js"; //hot reloaded bundle served from webpack dev server
-SERVER_CONFIG.bundlePath = "http://localhost:9000/bundle.js"; //hot reloaded bundle served from webpack dev server
-SERVER_CONFIG.webDevServer = "http://localhost:9000/"; //webpack dev server
-
-if (process.env.NODE_ENV == 'production') {
-    SERVER_CONFIG.loginBundlePath = "/dist/login.js"; //Login bundle for production use
-    SERVER_CONFIG.bundlePath = "/dist/bundle.js"; //bundle for production use
-    SERVER_CONFIG.apiBaseUrl= "http://10.9.9.13:31241/" //"http://121.167.52.69:8080";
-    SERVER_CONFIG.redisHostUrl = process.env.DOCKER ? 'redis' : "172.19.0.2";
-}
-global.serverConfig = SERVER_CONFIG;
-exports.serverConfig = SERVER_CONFIG;
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: kong-config-map
+  namespace: default
+data:
+  const SERVER_CONFIG = {};
+  SERVER_CONFIG.nodePort = 31244//9001;
+  SERVER_CONFIG.redisHostUrl = "localhost";
+  SERVER_CONFIG.redisPortUrl = 6379;
+  SERVER_CONFIG.apiBaseUrl = 'http://121.167.52.69:8080'; //'http://127.0.0.1:8080';
+  SERVER_CONFIG.kongBaseUrl = 'http://localhost:8001';
+  SERVER_CONFIG.loginBundlePath = "http://localhost:9000/login.js"; //hot reloaded bundle served from webpack dev server
+  SERVER_CONFIG.bundlePath = "http://localhost:9000/bundle.js"; //hot reloaded bundle served from webpack dev server
+  SERVER_CONFIG.webDevServer = "http://localhost:9000/"; //webpack dev server
+  
+  if (process.env.NODE_ENV == 'production') {
+      SERVER_CONFIG.loginBundlePath = "/dist/login.js"; //Login bundle for production use
+      SERVER_CONFIG.bundlePath = "/dist/bundle.js"; //bundle for production use
+      SERVER_CONFIG.apiBaseUrl= "http://10.9.9.13:31241/" //"http://121.167.52.69:8080";
+      SERVER_CONFIG.redisHostUrl = process.env.DOCKER ? 'redis' : "172.19.0.2";
+  }
+  global.serverConfig = SERVER_CONFIG;
+  exports.serverConfig = SERVER_CONFIG;

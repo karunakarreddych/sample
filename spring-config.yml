@@ -1,7 +1,7 @@
 apiVersion: v1
 kind: ConfigMap
 metadata:
-  name: spring-boot-demo-config-map
+  name: spring-boot-app-config-map
   namespace: default
 data:
   spring.datasource.url: "jdbc:postgresql://192.168.1.7:30868/bmtsys"
