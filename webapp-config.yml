@@ -8,7 +8,7 @@ data:
   SERVER_CONFIG.nodePort: "31244"//9001
   SERVER_CONFIG.redisHostUrl: "localhost"
   SERVER_CONFIG.redisPortUrl: "6379"
-  SERVER_CONFIG.apiBaseUrl: "http://192.168.1.6:31241/" //Please update worker1 IP Address here
+  SERVER_CONFIG.apiBaseUrl: "http://192.168.1.9:31241/" //Please update worker1 IP Address here
   SERVER_CONFIG.kongBaseUrl: "http://localhost:8001"
   SERVER_CONFIG.loginBundlePath: "http://localhost:9000/login.js"
   SERVER_CONFIG.bundlePath: "http://localhost:9000/bundle.js"
@@ -17,7 +17,7 @@ data:
   if (process.env.NODE_ENV == 'production') {
       SERVER_CONFIG.loginBundlePath: "/dist/login.js"
       SERVER_CONFIG.bundlePath: "/dist/bundle.js"
-      SERVER_CONFIG.apiBaseUrl: "http://192.168.1.6:31241/" 
+      SERVER_CONFIG.apiBaseUrl: "http://192.168.1.9:31241/" 
       SERVER_CONFIG.redisHostUrl: "172.19.0.2:6379"
   }
   global.serverConfig: SERVER_CONFIG
