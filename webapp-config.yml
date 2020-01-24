@@ -4,11 +4,10 @@ metadata:
   name: webapp-config-map
   namespace: default
 data:
-  const SERVER_CONFIG: "{}"
-  SERVER_CONFIG.nodePort: "31244"//9001
+  SERVER_CONFIG.nodePort: "31244"
   SERVER_CONFIG.redisHostUrl: "localhost"
   SERVER_CONFIG.redisPortUrl: "6379"
-  SERVER_CONFIG.apiBaseUrl: "http://192.168.1.12:31241/" //Please update worker1 IP Address here
+  SERVER_CONFIG.apiBaseUrl: "http://192.168.1.12:31241/"
   SERVER_CONFIG.kongBaseUrl: "http://localhost:8001"
   SERVER_CONFIG.loginBundlePath: "http://localhost:9000/login.js"
   SERVER_CONFIG.bundlePath: "http://localhost:9000/bundle.js"
