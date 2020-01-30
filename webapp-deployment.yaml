@@ -14,7 +14,7 @@ spec:
     spec:                       # Spec for the containers that will run inside the Pods
       containers:
       - name: tetrawing-webapp
-        image: chkarunakarreddy/sample:5
+        image: chkarunakarreddy/tetrawing_ui:2.0
         envFrom:
         - configMapRef:
             name: webapp-config-map
