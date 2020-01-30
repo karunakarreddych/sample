@@ -29,7 +29,7 @@ spec:
     spec:
       containers:
       - name: spring-boot-app
-        image: chkarunakarreddy/springboot-tetrawing-api-service:latest
+        image: chkarunakarreddy/springboot-tetrawing-api-service:2.0
         envFrom:
         - configMapRef:
             name: spring-boot-app-config-map
